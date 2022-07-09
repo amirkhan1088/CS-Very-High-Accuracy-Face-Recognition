@@ -5,5 +5,5 @@ Download the datasets given from the links below (AT&T is no more available on i
 
 ## databases can be downloaded from the following links
 1. AT&T dataset https://www.kaggle.com/kasikrit/att-database-of-faces (original link https://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.htm)
-2. Extended Yale B (uncropped/cropped) http://vision.ucsd.edu/~leekc/ExtYaleDatabase/ExtYaleB.html
+2. Extended Yale B (uncropped) http://vision.ucsd.edu/~leekc/ExtYaleDatabase/ExtYaleB.html
 3. Georgia Tech Face Database https://computervisiononline.com/dataset/1105138700
