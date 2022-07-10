@@ -1,5 +1,5 @@
-function [Hr]=generate_haar2(m,N)
-
+function [Hr]=generate_haar(N)
+% Author: Kamlesh Pawar
 % Input :
 %     N : size of matrix to be generated, N must be some power of 2.
 % Output:
@@ -18,9 +18,9 @@ for i=1:n-1
     t=1:(2^i);
     q=[q t];
 end
-Hr=zeros(m,N);
+Hr=zeros(N,N);
 Hr(1,:)=1;
-for i=2:N; % 
+for i=2:N;
     P=p(1,i); Q=q(1,i);
     for j= (N*(Q-1)/(2^P)):(N*((Q-0.5)/(2^P))-1)
         Hr(i,j+1)=2^(P/2);
@@ -28,14 +28,6 @@ for i=2:N; %
     for j= (N*((Q-0.5)/(2^P))):(N*(Q/(2^P))-1)
         Hr(i,j+1)=-(2^(P/2));
     end
-    if size(Hr,1) == m+1;
-        break
-    end
 end
-ixp = find(Hr>0);
-Hr(ixp) = 1;
-ixn = find(Hr<0);
-Hr(ixn) = -1;
-
-%Hr=Hr*(1/sqrt(N));
+Hr=Hr*(1/sqrt(N));
 end
