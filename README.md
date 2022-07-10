@@ -3,7 +3,8 @@ This work deals with high-level inference (face/object recognition) using compre
 ## How does it work?
 Download the datasets given from the links below (AT&T is no more available on it's original link). Keep the dataset in the rootFolder. Keep the program file in the folder containing rootFolder. Run the program directly for each dataset individually.
 
-## databases can be downloaded from the following links
+## databases/help function can be downloaded from the following links
 1. AT&T dataset https://www.kaggle.com/kasikrit/att-database-of-faces (original link https://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.htm)
 2. Extended Yale B (uncropped) http://vision.ucsd.edu/~leekc/ExtYaleDatabase/ExtYaleB.html
 3. Georgia Tech Face Database https://computervisiononline.com/dataset/1105138700
+4. Haar transform function: Kamlesh Pawar (2022). Code for generating Haar matrix (https://www.mathworks.com/matlabcentral/fileexchange/45247-code-for-generating-haar-matrix), MATLAB Central File Exchange. Retrieved July 10, 2022.
