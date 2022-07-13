@@ -74,11 +74,12 @@ Accuracy = zeros(length(C),1); % accuracy corresponding to each number of sample
 
 % Phi is random binary measurment matrix of size (M,N). Here c represents
 % the M in each run.
-h2 = generate_haar2(5000,2^19);
+h = generate_haar2(3000,2^15); ------------------------------------------------------Haar for AT&T
+%h = generate_haar2(5000,2^19); -----------------------------------------------------Haar for EYB and GIT
 for j=1:length(C)
     c = C(j);
     
-    Phi = h2(1:c,1:n); % haar transform matrix
+    Phi = h(1:c,1:n); % haar transform matrix
     Xs = zeros(L,c);
     XsT = zeros(L1,c);
 
@@ -97,7 +98,7 @@ for j=1:length(C)
     Xs = zscore(Xs,1,2); % zscore of samples of each image are calculated.
     
     for i=1:L1
-        img = readimage(TrainFace,i);
+        img = readimage(TestFace,i);
         if ndims(img)>2
             img = rgb2gray(img); % convert the images grey if not already
         end
@@ -108,10 +109,11 @@ for j=1:length(C)
     end
     XsT = zscore(XsT,1,2);
     % SVM in CS
+    t = templateSVM('KernelFunction','Linear');
+    mdl = fitcecoc(Xs,Y,'Coding','onevsall','Learners',t); % train the model on training set
+    preds = predict(mdl,XsT); % make predictions on test set
+    acc = sum(preds==Y1)/L1 % accuracy for each of c
+    Accuracy(j) = acc; % store accuracies in a matrix
 end
 
-t = templateSVM('KernelFunction','Linear');
-mdl = fitcecoc(Xs,Y,'Coding','onevsall','Learners',t); % train the model on training set
-preds = predict(mdl,XsT); % make predictions on test set
-acc = sum(preds==Y1)/L1 % accuracy for each of c
-Accuracy(j) = acc; % store accuracies in a matrix
+
