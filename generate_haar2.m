@@ -4,6 +4,7 @@ function [H]=generate_haar2(m,N)
 %     N : size of matrix to be generated, N =2^k.
 % Output:
 %    Hr : Haar transform of size NxN
+% better performance can be achieved by using fractional coefficeints of haar transform
 
 if (N<2 || (log2(N)-floor(log2(N)))~=0)
     error('The input argument should be of form 2^k');
@@ -28,13 +29,13 @@ for i=2:N; %
     for j= (N*((Q-0.5)/(2^P))):(N*(Q/(2^P))-1)
         H(i,j+1)=-(2^(P/2));
     end
-    if size(H,1) == m+1;
+    if size(H,1) == m+1;   % to generate rectangular Haar matrix
         break
     end
 end
-ixp = find(H>0);
+ixp = find(H>0);  % Positive values are made to 1;
 H(ixp) = 1;
-ixn = find(H<0);
+ixn = find(H<0); % Negtive values are made to -1;
 H(ixn) = -1;
 
 end
