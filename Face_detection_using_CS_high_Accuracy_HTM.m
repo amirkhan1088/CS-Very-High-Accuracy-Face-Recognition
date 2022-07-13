@@ -36,7 +36,7 @@ categories = {'s01','s02','s03','s04','s05','s06','s07','s08','s09','s10',...
 
 rootFolder = 'GIT';
 
-%% Read the dataset and store the images in an imagestore
+%% Read the dataset and store the images in an imagestore --- Shuffle the data and run the code 10 times and calculate average accuracy
 imds = imageDatastore(fullfile(rootFolder, categories), 'LabelSource',...
     'foldernames');
 %% Create training and test set by randomly selecting the samples from all groups and shuffle the sets
