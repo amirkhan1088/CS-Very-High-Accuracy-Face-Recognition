@@ -64,14 +64,14 @@ XsT = zeros(L1,nc); %matrix containing the compressed samples test
 
 Accuracy = zeros(length(C),1); % accuracy corresponding to each number of samples
 
-% Phi is random binary measurment matrix of size (M,N). Here c represents
+% Phi is haar transform based measurment matrix of size (M,N). Here c represents
 % the M in each run.
 h = generate_haar2(3000,2^15); ------------------------------------------------------Haar for AT&T
 %h = generate_haar2(5000,2^19); -----------------------------------------------------Haar for EYB and GIT
 for j=1:length(C)
     c = C(j);
     
-    Phi = h(1:c,1:n); % haar transform matrix
+    Phi = h(1:c,1:n); % haar transform based measurement matrix
     Xs = zeros(L,c);
     XsT = zeros(L1,c);
 
