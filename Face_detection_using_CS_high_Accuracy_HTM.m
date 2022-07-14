@@ -57,10 +57,10 @@ XsT = zeros(L1,nc); %matrix containing the compressed samples test
 % need to select some fraction of it which in turn decides the sensing
 % ratio M/N. M is no. of samples
 
-%C = [103 168 644 1280 2576]; suitable for AT&T dataset. Other
+%C = [2576 60 42]; suitable for AT&T dataset. Other
 %intermeadiate values can also be explored.
-%C = [307 100 60 50 40 20 15] % for extended Yale and GIT dataset
-%C = [8064 4032 2016 1008 504 252 100]; for extended yale cropped 
+%C = [3072 100 20] % for extended Yale and GIT dataset
+%C = [3072 100 20 15]; for Extended yale cropped 
 
 Accuracy = zeros(length(C),1); % accuracy corresponding to each number of samples
 
